@@ -5,13 +5,13 @@ Data Science Hackathon of PSG
 
 ### Features
 
-*Visual Heat-map dashboard for each category of crime
+- Visual Heat-map dashboard for each category of crime
 
-*Crime index per population for each State
+- Crime index per population for each State
 
-*Advisory to users travelling to high crime locations
+- Advisory to users travelling to high crime locations
 
-*Crime forecast for current year
+- Crime forecast for current year
 
 ### Visual Heat-map dashboard for each category of crime
 
