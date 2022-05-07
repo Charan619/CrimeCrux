@@ -1,6 +1,6 @@
 # CrimeCrux
 
-- Kirushikesh DB, Charan KR, Jeyakumaran
+- Kirushikesh DB, Charan KR, Jeyakumaran M
 
 ## Problem Statement 2: Crime Analysis & Safety recommendation
 
