@@ -1,5 +1,6 @@
-# PSG_Hackathon
-Data Science Hackathon of PSG
+# CrimeCrux
+
+- Kirushikesh DB, Charan KR, Jeyakumaran
 
 ## Problem Statement 2: Crime Analysis & Safety recommendation
 
@@ -27,10 +28,13 @@ Given a starting and ending location for travel we inform the user with insights
 
 ### Crime forecast for current year
 
-The dataset available tracks crime only from 2001-2014. This proposes a problem where the crime data might not be accurate in the current scenario. To solve this we forecasted the data using TSA.
+The dataset available tracks crime only from 2001-2014. This proposes a problem where the crime data might not be accurate in the current scenario. To solve this we forecasted the data using ARIMA.
 
-### Improvements
+### Improvements/Ideas
 
-Giving travel advisory to user for each district between start and end location as well ( by calculation path )
+Giving travel advisory to user for each district between start and end location as well ( by calculating path )
+
+
+
 
 
