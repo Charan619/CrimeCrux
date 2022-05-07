@@ -39,36 +39,44 @@ def app():
             'ROBBERY':' Carry your bag in front of you. Gentlemen, carry your wallet in your front pocket.',
              'FRAUD':'Pay the safest way. Guard your personal information. Don’t believe promises of easy money. Check money notes carefully',
             }
-    data_url = "F:\\Streamlit_learn\\plotting_app\\01_District_wise_crimes_committed_Merge_IPC_Till_2013.csv"
+    data_url = "01_District_wise_crimes_committed_Merge_IPC_Till_2013.csv"
     mergedata=pd.read_csv(data_url)
-    population_url = "F:\\Streamlit_learn\\plotting_app\\State_population.csv"
+    population_url = "State_population.csv"
     statepopulation=pd.read_csv(population_url)
     statepopulation['Population (2011 Census)[11]']=statepopulation['Population (2011 Census)[11]'].str.replace(',','')
     N=5
-    crime_types=mergedata.columns[3:-1]
-
+    crime_types=list(mergedata.columns[3:-1])
+    fig, ax = plt.subplots(figsize=(15,40),nrows=11)
+    i=int(0)
     for crime_type in crime_types:
         from_data=mergedata.loc[mergedata['STATE/UT']==from_state]
         to_data=mergedata.loc[mergedata['STATE/UT']==to_state]
         fd=int(statepopulation[statepopulation['STATE/UT']==from_state]['Population (2011 Census)[11]'])
         td=int(statepopulation[statepopulation['STATE/UT']==to_state]['Population (2011 Census)[11]'])
         from_data[crime_type]=from_data[crime_type].apply(lambda i: i/fd)
+        from_data.index=list(from_data['YEAR'])
+        to_data.index=list(to_data['YEAR'])
         to_data[crime_type]=to_data[crime_type].apply(lambda i: i/td)
         st.set_option('deprecation.showPyplotGlobalUse', False)
-        ax=from_data[crime_type].plot(kind='line',y='TOTAL IPC CRIMES')
-        to_data[crime_type].plot(kind='line',y='TOTAL IPC CRIMES',ax=ax,color='red')
-        plt.title('Graph based on '+crime_type)
+        from_data[crime_type].plot(kind='line',y='TOTAL IPC CRIMES',ax=ax[i])
+        to_data[crime_type].plot(kind='line',y='TOTAL IPC CRIMES',ax=ax[i],color='red')
+        ax[i].set_title('Graph based on '+crime_type)
+        # plt.xticks(list(from_data['YEAR']))
+        ax[i].set_ylabel("Crime/Population")
+        ax[i].legend(['from','to'])
+        # ax[i].set_xlabel("Year")
         plt.show()
-        st.pyplot()
-        
+        i+=1
+        # st.write(from_data)
         next_from_year=from_data.tail(N)[crime_type].sum()/N
         next_to_year=to_data.tail(N)[crime_type].sum()/N
         st.write(from_state, ' next year possible '+crime_type+' value is :',next_from_year)
         st.write(to_state,' next year possible '+crime_type+' value is :',next_to_year)
         if(next_to_year>next_from_year):
-            st.write(crime_type+' On' +to_state+' is more than your from state')
+            st.write(crime_type+' On ' +to_state+' is more than your from state')
             if(crime_type in suggestions):
                 st.write(suggestions[crime_type])
+    st.pyplot(fig)
                 
     
     

@@ -24,7 +24,7 @@ def app():
             '2012', '2013','ALL']))
 
     st.write('You selected:', option2)
-    data_url = "F:\\Streamlit_learn\\plotting_app\\01_District_wise_crimes_committed_Merge_IPC_Till_2013.csv"
+    data_url = "01_District_wise_crimes_committed_Merge_IPC_Till_2013.csv"
     d1=pd.read_csv(data_url)
     if(option2=='ALL'):
         d2=d1.groupby(by='STATE/UT').sum()
@@ -44,13 +44,15 @@ def app():
         # d2.loc['TELENGANA']=d2.loc['ANDHRA PRADESH']        
         df['active cases']=list(d2[option])
     # st.write(d2[option])
+    df.rename(columns = {'active cases': 'Crimes'}, inplace = True)
     fig = px.choropleth(
         df,
         geojson="https://gist.githubusercontent.com/jbrobst/56c13bbbf9d97d187fea01ca62ea5112/raw/e388c4cae20aa53cb5090210a42ebb9b765c0a36/india_states.geojson",
         featureidkey='properties.ST_NM',
         locations='state',
-        color='active cases',
-        color_continuous_scale='Reds'
+        color='Crimes',
+        color_continuous_scale='Reds',
+        title="Heatmap of Crimes"
     )
     
     fig.update_geos(fitbounds="locations", visible=False)

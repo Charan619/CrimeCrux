@@ -10,7 +10,7 @@ import plotly.express as px
 
 def app():
     st.title('Forecasting')
-    data_url = "F:\\Streamlit_learn\\plotting_app\\01_District_wise_crimes_committed_Merge_IPC_Till_2013.csv"
+    data_url = "01_District_wise_crimes_committed_Merge_IPC_Till_2013.csv"
     mergedata=pd.read_csv(data_url)
     crime = st.selectbox(
      'Select Crime',
@@ -40,8 +40,10 @@ def app():
         nowyear=[value,year]
         curdata=pd.concat([curdata,pd.DataFrame({crime:[value],'YEAR':[year]})],axis=0)
         moving_data.append(value)
-    
+    st.set_option('deprecation.showPyplotGlobalUse', False)
     curdata.plot(x='YEAR',y=crime,kind='line')
+    plt.title("Forecasting for next years")
+    plt.ylabel("Counts")
     plt.show()
     st.pyplot()
     # st.write('Welcome to app1')
