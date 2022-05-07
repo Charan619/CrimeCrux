@@ -34,7 +34,16 @@ The dataset available tracks crime only from 2001-2014. This proposes a problem 
 
 Giving travel advisory to user for each district between start and end location as well ( by calculating path )
 
+### Running the Dashboard
 
+Clone the repository and switch to the __master__ branch
 
+(Recommended) Have naconda installed in your system and open conda prompt
 
+`conda env create -n ENVNAME --file environment.yml`
 
+`pip install streamlit`
+
+`streamlit run app.py`
+
+(Otherwise) install all the packages in requirements.txt
