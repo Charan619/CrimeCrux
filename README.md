@@ -10,3 +10,5 @@ Visual Heat-map dashboard for each category of crime
 Crime index per population for each State
 
 Advisory to users travelling to high crime locations
+
+Crime forecast for current year
