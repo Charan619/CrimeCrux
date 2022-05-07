@@ -38,7 +38,7 @@ Giving travel advisory to user for each district between start and end location 
 
 Clone the repository and switch to the __master__ branch
 
-(Recommended) Have naconda installed in your system and open conda prompt
+(Recommended) Have Anaconda installed in your system and open conda prompt
 
 `conda env create -n ENVNAME --file environment.yml`
 
