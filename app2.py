@@ -9,17 +9,17 @@ import plotly.express as px
 
 def app():
     
-    st.title('APP2')
-    st.write('Welcome to app2')
+    st.title('Visulization')
+    # st.write('Welcome to app2')
     option = st.selectbox(
-     'How would you like to be contacted?',
+     'Select the crime',
      tuple(['MURDER', 'RAPE', 'KIDNAPPING', 'DACOITY', 'ROBBERY', 'RIOTS',
             'FRAUD', 'HURT', 'AGAINST WOMEN', 'NEGLIGENCE', 'OTHER',
             'TOTAL IPC CRIMES']))
 
     st.write('You selected:', option)
     option2 = st.selectbox(
-     'How would you like to be contacted?',
+     'Select the year',
      tuple(['2001', '2002', '2003', '2004', '2005', '2006', '2007', '2008', '2009', '2010', '2011',
             '2012', '2013','ALL']))
 
@@ -43,7 +43,7 @@ def app():
         # d2=d2.drop('D & N HAVELI')
         # d2.loc['TELENGANA']=d2.loc['ANDHRA PRADESH']        
         df['active cases']=list(d2[option])
-    st.write(d2[option])
+    # st.write(d2[option])
     fig = px.choropleth(
         df,
         geojson="https://gist.githubusercontent.com/jbrobst/56c13bbbf9d97d187fea01ca62ea5112/raw/e388c4cae20aa53cb5090210a42ebb9b765c0a36/india_states.geojson",
