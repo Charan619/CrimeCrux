@@ -47,3 +47,7 @@ Clone the repository and switch to the __master__ branch
 `streamlit run app.py`
 
 (Otherwise) install all the packages in requirements.txt
+
+### The dashboard has been deployed with streamlit at
+
+[Click Here](https://share.streamlit.io/jaggu24/psg_hackathon/app.py)
