@@ -2,7 +2,10 @@
 
 - Kirushikesh DB, Charan KR, Jeyakumaran M
 
-## Problem Statement 2: Crime Analysis & Safety recommendation
+### The dashboard has been deployed with streamlit at
+
+[Click Here](https://share.streamlit.io/jaggu24/psg_hackathon/app.py)
+## Problem Statement : Crime Analysis & Safety recommendation
 
 ### Features
 
@@ -48,6 +51,3 @@ Clone the repository and switch to the __master__ branch
 
 (Otherwise) install all the packages in requirements.txt
 
-### The dashboard has been deployed with streamlit at
-
-[Click Here](https://share.streamlit.io/jaggu24/psg_hackathon/app.py)
